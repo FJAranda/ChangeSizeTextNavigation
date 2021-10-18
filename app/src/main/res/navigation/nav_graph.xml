@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Funciona mediante ponnerle las label al fragment.
+    Lo importante es el id de la action.
+
+    Unir fragments mediante flechas y añadir argumentos al fragment de destino desde el fragment-arguments en la interfaz
+-->
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/changeSizeTextFragment">
+
+    <fragment
+        android:id="@+id/changeSizeTextFragment"
+        android:name="com.example.changesizetextnavigation.ui.ChangeSizeTextFragment"
+        android:label="fragment_change_size_text"
+        tools:layout="@layout/fragment_change_size_text" >
+        <action
+            android:id="@+id/action_changeSizeTextFragment_to_viewMessageFragment"
+            app:destination="@id/viewMessageFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/viewMessageFragment"
+        android:name="com.example.changesizetextnavigation.ui.ViewMessageFragment"
+        android:label="fragment_view_message"
+        tools:layout="@layout/fragment_view_message" >
+        <argument
+            android:name="message"
+            app:argType="com.example.changesizetextnavigation.data.model.Message" />
+    </fragment>
+</navigation>
